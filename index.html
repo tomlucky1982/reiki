@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reiki</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #111111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .top-images {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .top-images img {
+      height: 140px; /* obie grafiki mają tę samą wysokość */
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .description {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0 auto 36px;
+    }
+
+    .enter-button {
+      display: inline-block;
+      background: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 14px 34px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+    }
+
+    .enter-button:hover {
+      opacity: 0.85;
+    }
+
+    @media (max-width: 640px) {
+      .top-images img {
+        height: 90px;
+      }
+
+      .description {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-images">
+      <img src="reiki.png" alt="Reiki" />
+      <img src="napis.png" alt="Napis Reiki" />
+    </div>
+
+    <div class="description">
+      Reiki to Uniwersalna Energia Życia odkryta ponownie na początku XX wieku przez dr Mikao Usui (Japonia).
+    </div>
+
+    <a href="#" class="enter-button">Wejdź</a>
+  </div>
+</body>
+</html>
