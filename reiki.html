@@ -22,7 +22,6 @@
       font-family: "Times New Roman", Georgia, serif;
     }
 
-    /* ===== HEADER ===== */
     .site-header {
       border-bottom: 2px solid #000;
       background: #fff;
@@ -48,6 +47,7 @@
       gap: 10px;
       text-decoration: none;
       color: #000;
+      flex-shrink: 0;
     }
 
     .site-brand img {
@@ -56,13 +56,15 @@
       display: block;
     }
 
-    /* MENU (ładowane z menu.js) */
+    .top-menu,
     #site-menu {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
+    .top-menu a,
     #site-menu a {
       color: #000;
       text-decoration: none;
@@ -73,6 +75,7 @@
       padding-bottom: 6px;
     }
 
+    .top-menu a::after,
     #site-menu a::after {
       content: "";
       position: absolute;
@@ -84,11 +87,13 @@
       transition: 0.2s;
     }
 
-    #site-menu a:hover::after {
+    .top-menu a:hover::after,
+    .top-menu a.active::after,
+    #site-menu a:hover::after,
+    #site-menu a.active::after {
       width: 100%;
     }
 
-    /* ===== MAIN ===== */
     .single-column {
       padding: 80px 20px;
       display: flex;
@@ -96,32 +101,31 @@
     }
 
     .content-wrapper {
-      max-width: 900px;
+      max-width: 980px;
       width: 100%;
     }
 
     .text-image {
       display: grid;
       grid-template-columns: 1.4fr 0.6fr;
-      gap: 40px;
+      gap: 48px;
       align-items: center;
     }
 
     .text p {
       font-size: 1.15rem;
       line-height: 1.9;
-      margin-bottom: 18px;
+      margin: 0 0 22px;
     }
 
     .image img {
       width: 100%;
-      max-width: 260px;
+      max-width: 280px;
       display: block;
       margin: 0 auto;
       border: 1px solid #000;
     }
 
-    /* MOBILE */
     @media (max-width: 768px) {
       .site-header-inner {
         flex-direction: column;
@@ -135,36 +139,28 @@
       }
 
       .image img {
-        max-width: 200px;
+        max-width: 220px;
       }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="site-header-inner">
-
       <a href="index.html" class="site-brand">
         <img src="reiki.png" alt="Reiki" />
         <img src="napis.png" alt="Reiki Usui Shiki Ryoho" />
       </a>
 
-      <!-- MENU Z menu.js -->
-      <div id="site-menu"></div>
-
+      <nav id="site-menu" class="top-menu"></nav>
     </div>
   </header>
 
-  <!-- CONTENT -->
   <main>
     <section class="single-column">
       <div class="content-wrapper">
-
         <div class="text-image">
-
           <div class="text">
             <p>
               Reiki to Uniwersalna Energia Życia odkryta ponownie na początku XX wieku przez dr Mikao Usui (Japonia).
@@ -180,15 +176,11 @@
           <div class="image">
             <img src="usui.png" alt="Mikao Usui" />
           </div>
-
         </div>
-
       </div>
     </section>
   </main>
 
-  <!-- MENU SCRIPT -->
   <script src="menu.js"></script>
-
 </body>
 </html>
