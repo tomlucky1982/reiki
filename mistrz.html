@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mistrz | Reiki</title>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Times New Roman", Georgia, serif;
+    }
+
+    .site-header {
+      border-bottom: 2px solid #000;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .site-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    .site-brand img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    .top-menu,
+    #site-menu {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .top-menu a,
+    #site-menu a {
+      color: #000;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 6px;
+    }
+
+    .top-menu a::after,
+    #site-menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1.5px;
+      background: #000;
+      transition: 0.2s;
+    }
+
+    .top-menu a:hover::after,
+    .top-menu a.active::after,
+    #site-menu a:hover::after,
+    #site-menu a.active::after {
+      width: 100%;
+    }
+
+    .single-column {
+      padding: 80px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .content-wrapper {
+      max-width: 1050px;
+      width: 100%;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin: 0 0 40px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .text-image {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .text p {
+      font-size: 1.12rem;
+      line-height: 1.9;
+      margin: 0 0 22px;
+    }
+
+    .lineage-box {
+      border: 1px solid #000;
+      padding: 24px;
+      margin: 0 0 32px;
+    }
+
+    .lineage-title {
+      margin: 0 0 18px;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .lineage-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .lineage-list li {
+      font-size: 1.08rem;
+      line-height: 1.9;
+      padding: 2px 0;
+    }
+
+    .lineage-list li:not(:last-child)::after {
+      content: "↓";
+      display: block;
+      font-size: 1rem;
+      line-height: 1.2;
+      margin: 2px 0;
+    }
+
+    .signature {
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid #000;
+    }
+
+    .signature-name {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .signature-role {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .image img {
+      width: 100%;
+      max-width: 320px;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #000;
+    }
+
+    @media (max-width: 900px) {
+      .text-image {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .image img {
+        max-width: 260px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="site-brand">
+        <img src="reiki.png" alt="Reiki" />
+        <img src="napis.png" alt="Reiki Usui Shiki Ryoho" />
+      </a>
+
+      <nav id="site-menu" class="top-menu"></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="single-column">
+      <div class="content-wrapper">
+        <h1 class="section-title">Mistrz</h1>
+
+        <div class="text-image">
+          <div class="text">
+            <div class="lineage-box">
+              <h2 class="lineage-title">Moja linia przekazu</h2>
+              <ul class="lineage-list">
+                <li>Mikao Usui</li>
+                <li>Chujiro Hayashi</li>
+                <li>Hawayo Takata</li>
+                <li>Phyllis Lei Furumoto</li>
+                <li>Brigitte Müller</li>
+                <li>Jan Peterko</li>
+                <li>Marian Bartkowiak</li>
+              </ul>
+            </div>
+
+            <p>
+              Reiki w moim życiu jest ponad 20 lat. Obecnie dłużej żyję z Reiki niż bez.
+              Nie wyobrażam sobie nawet, jakby wyglądało moje życie bez tego daru.
+              Reiki zmienia i ubogaca nas na tak wielu płaszczyznach, że aż trudno byłoby
+              je wszystkie wymienić.
+            </p>
+
+            <p>
+              Kiedy jako młody chłopak usłyszałem o Reiki, coś we mnie od razu chciało się
+              z tym zapoznać i to zgłębić. Nie wiedziałem do końca, co to jest Reiki i do czego
+              dokładnie służy, ale intuicja mówiła mi, że jest to dobre.
+            </p>
+
+            <p>
+              Wcześniej, przed inicjacją Reiki, i później również, brałem udział w wielu innych
+              kursach z dziedziny rozwoju osobistego i duchowego, ale żadna inna metoda czy żaden
+              kurs nie zrobiły tyle dobrego w moim życiu co Reiki.
+            </p>
+
+            <p>
+              Mój Mistrz i Nauczyciel Marian Bartkowiak został inicjowany na Mistrza Reiki
+              5.10.1994 r., dokładnie 25 lat później, tj. 5.10.2019 r., inicjował mnie na
+              Mistrza Reiki.
+            </p>
+
+            <p>
+              Reiki jest otwarte dla wszystkich. Aby wziąć udział w seminarium Reiki (1),
+              nie trzeba dysponować żadną wcześniejszą wiedzą. Dar ten zostaje z nami już na zawsze.
+            </p>
+
+            <div class="signature">
+              <div class="signature-name">Tomasz Szczęsny</div>
+              <div class="signature-role">Mistrz Reiki</div>
+            </div>
+          </div>
+
+          <div class="image">
+            <img src="tomek.jpg" alt="Tomasz Szczęsny" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="menu.js"></script>
+</body>
+</html>
