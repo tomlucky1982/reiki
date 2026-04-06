@@ -8,12 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
     "url": "index.html"
   },
   {
-    "label": "O Reiki",
-    "url": "o-reiki.html"
+    "label": "Reiki",
+    "url": "reiki.html"
   },
   {
-    "label": "Prowadzący",
-    "url": "prowadzacy.html"
+    "label": "Mistrz",
+    "url": "mistrz.html"
+  },
+  {
+    "label": "MATERIAŁY",
+    "url": "materialy.html"
   },
   {
     "label": "Kontakt",
