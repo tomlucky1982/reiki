@@ -23,14 +23,14 @@
     }
 
     .container {
-      max-width: 900px;
       width: 100%;
       text-align: center;
     }
 
-    /* KLUCZOWY ELEMENT */
-    .top-images-wrapper {
-      display: inline-block;
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .top-images {
@@ -38,8 +38,9 @@
       justify-content: center;
       align-items: center;
       gap: 24px;
-      flex-wrap: wrap;
       margin-bottom: 32px;
+      width: max-content;
+      max-width: 100%;
     }
 
     .top-images img {
@@ -53,6 +54,8 @@
       font-size: 1.2rem;
       line-height: 1.7;
       margin: 0 auto 36px;
+      text-align: center;
+      word-wrap: break-word;
     }
 
     .enter-button {
@@ -72,6 +75,10 @@
     }
 
     @media (max-width: 640px) {
+      .top-images {
+        gap: 14px;
+      }
+
       .top-images img {
         height: 90px;
       }
@@ -85,20 +92,34 @@
 
 <body>
   <div class="container">
-
-    <div class="top-images-wrapper">
-      <div class="top-images">
+    <div class="brand-block">
+      <div class="top-images" id="topImages">
         <img src="reiki.png" alt="Reiki" />
         <img src="napis.png" alt="Napis Reiki" />
       </div>
 
-      <div class="description">
-        Reiki to Uniwersalna Energia Życia odkryta ponownie na początku dwudziestego wieku przez dr Mikao Usui.
+      <div class="description" id="description">
+        Reiki to Uniwersalna Energia Życia odkryta ponownie na początku XX wieku przez dr Mikao Usui (Japonia).
       </div>
+
+      <a href="reiki.html" class="enter-button">Wejdź</a>
     </div>
-
-    <a href="reiki.html" class="enter-button">Wejdź</a>
-
   </div>
+
+  <script>
+    function syncDescriptionWidth() {
+      const topImages = document.getElementById("topImages");
+      const description = document.getElementById("description");
+
+      if (!topImages || !description) return;
+
+      const width = topImages.offsetWidth;
+      description.style.width = width + "px";
+      description.style.maxWidth = "100%";
+    }
+
+    window.addEventListener("load", syncDescriptionWidth);
+    window.addEventListener("resize", syncDescriptionWidth);
+  </script>
 </body>
 </html>
