@@ -2,168 +2,48 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zarządzaj menu | Reiki</title>
+
   <style>
-    :root {
-      --bg: #ffffff;
-      --text: #000000;
-      --line: #000000;
-      --soft: #f5f5f5;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "Times New Roman", Georgia, serif;
-    }
-
     body {
-      min-height: 100vh;
-    }
-
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 28px 20px 60px;
-    }
-
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      border-bottom: 2px solid var(--line);
-      padding-bottom: 22px;
-      margin-bottom: 28px;
-    }
-
-    .hero-left {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .kanji-mark {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      font-size: 2.4rem;
-      line-height: 1;
-      letter-spacing: 2px;
-      padding: 10px 6px;
-      border-right: 2px solid #000;
-    }
-
-    .hero h1 {
       margin: 0;
-      font-size: 2.1rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .hero p {
-      margin: 6px 0 0;
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .brush-line {
-      width: 120px;
-      height: 2px;
-      background: #000;
-      position: relative;
-    }
-
-    .brush-line::after {
-      content: "";
-      position: absolute;
-      right: -6px;
-      top: -3px;
-      width: 12px;
-      height: 8px;
-      background: #000;
-      transform: skewX(-35deg);
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 420px 1fr;
-      gap: 28px;
-    }
-
-    .panel {
-      border: 2px solid var(--line);
+      font-family: "Times New Roman", Georgia, serif;
       background: #fff;
+      color: #000;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
       padding: 20px;
     }
 
-    .panel-title {
-      margin: 0 0 18px;
-      font-size: 1.05rem;
-      letter-spacing: 0.18em;
+    h1 {
+      margin-bottom: 30px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      border-bottom: 1px solid #000;
-      padding-bottom: 10px;
+      font-weight: 400;
     }
 
     .field {
-      margin-bottom: 16px;
+      margin-bottom: 15px;
     }
 
-    .field label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 0.86rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .field input {
+    input {
       width: 100%;
-      border: 1.5px solid #000;
-      padding: 12px 12px;
-      background: #fff;
-      color: #000;
+      padding: 10px;
+      border: 1px solid #000;
       font-size: 1rem;
-      outline: none;
-      border-radius: 0;
-    }
-
-    .field input:focus {
-      box-shadow: inset 0 0 0 1px #000;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
     }
 
     button {
-      appearance: none;
-      border: 1.5px solid #000;
+      border: 1px solid #000;
       background: #000;
       color: #fff;
-      padding: 12px 16px;
+      padding: 10px 15px;
+      margin-right: 10px;
       cursor: pointer;
-      font-size: 0.92rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: 0.2s ease;
-    }
-
-    button:hover {
-      background: #fff;
-      color: #000;
     }
 
     button.secondary {
@@ -171,456 +51,113 @@
       color: #000;
     }
 
-    button.secondary:hover {
-      background: #000;
-      color: #fff;
+    .list {
+      margin-top: 30px;
     }
 
-    .menu-items {
-      margin-top: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .menu-item {
+    .item {
       border: 1px solid #000;
-      padding: 12px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-      align-items: center;
-      background: #fff;
-    }
-
-    .menu-item strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 3px;
-    }
-
-    .menu-item span {
-      font-size: 0.9rem;
-    }
-
-    .item-buttons {
+      padding: 10px;
+      margin-bottom: 10px;
       display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .item-buttons button {
-      padding: 8px 10px;
-      font-size: 0.78rem;
-    }
-
-    .preview-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-
-    .preview-box {
-      border: 2px solid #000;
-      min-height: 240px;
-      background: #fff;
-    }
-
-    .site-header {
-      border-bottom: 2px solid #000;
-      background: #fff;
-    }
-
-    .site-header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
       justify-content: space-between;
-      min-height: 76px;
-      gap: 20px;
     }
 
-    .site-brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .site-brand-kanji {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      font-size: 1.25rem;
-      line-height: 1;
-      border-right: 1px solid #000;
-      padding-right: 6px;
-    }
-
-    .site-brand-name {
-      font-size: 1.15rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .top-menu {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 10px 18px;
-    }
-
-    .top-menu a {
-      color: #000;
-      text-decoration: none;
-      font-size: 0.92rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      position: relative;
-      padding-bottom: 6px;
-    }
-
-    .top-menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1.5px;
-      background: #000;
-      transition: width 0.2s ease;
-    }
-
-    .top-menu a:hover::after {
+    textarea {
       width: 100%;
-    }
-
-    .preview-content {
-      padding: 28px 20px 36px;
-    }
-
-    .preview-title {
-      font-size: 1.6rem;
-      margin: 0 0 12px;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .preview-text {
-      max-width: 700px;
-      line-height: 1.8;
-      font-size: 1rem;
-    }
-
-    .code-box {
-      width: 100%;
-      min-height: 240px;
-      border: 1.5px solid #000;
-      padding: 14px;
-      font-family: Consolas, monospace;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      resize: vertical;
-      background: #fff;
-      color: #000;
-    }
-
-    .note {
-      border-left: 3px solid #000;
-      padding: 12px 14px;
-      background: var(--soft);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    @media (max-width: 980px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .hero {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .site-header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-top: 14px;
-        padding-bottom: 14px;
-      }
-
-      .top-menu {
-        justify-content: flex-start;
-      }
-
-      .menu-item {
-        grid-template-columns: 1fr;
-      }
+      height: 200px;
+      margin-top: 20px;
+      border: 1px solid #000;
+      padding: 10px;
+      font-family: monospace;
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <section class="hero">
-      <div class="hero-left">
-        <div class="kanji-mark">霊気</div>
-        <div>
-          <h1>Zarządzaj menu</h1>
-          <p>Reiki · minimalizm · czerń i biel · duch stylu japońskiego</p>
-        </div>
-      </div>
-      <div class="brush-line"></div>
-    </section>
 
-    <div class="layout">
-      <section class="panel">
-        <h2 class="panel-title">Dodaj element menu</h2>
+<div class="container">
 
-        <div class="field">
-          <label for="labelInput">Nazwa w menu</label>
-          <input id="labelInput" type="text" placeholder="np. O Reiki" />
-        </div>
+  <h1>Zarządzaj menu</h1>
 
-        <div class="field">
-          <label for="urlInput">Link</label>
-          <input id="urlInput" type="text" placeholder="np. o-reiki.html" />
-        </div>
-
-        <div class="actions">
-          <button id="addBtn">Dodaj</button>
-          <button id="saveBtn" class="secondary">Zapisz lokalnie</button>
-          <button id="clearBtn" class="secondary">Wyczyść wszystko</button>
-        </div>
-
-        <div class="menu-items" id="menuItems"></div>
-      </section>
-
-      <section class="preview-wrap">
-        <div class="panel">
-          <h2 class="panel-title">Podgląd menu</h2>
-          <div class="preview-box">
-            <header class="site-header">
-              <div class="site-header-inner">
-                <div class="site-brand">
-                  <div class="site-brand-kanji">霊気</div>
-                  <div class="site-brand-name">Reiki</div>
-                </div>
-                <nav class="top-menu" id="previewMenu"></nav>
-              </div>
-            </header>
-
-            <div class="preview-content">
-              <h3 class="preview-title">Przykładowa podstrona</h3>
-              <div class="preview-text">
-                To jest podgląd wspólnego górnego menu. Na każdej podstronie może wyglądać tak samo,
-                jeśli użyjesz jednego wspólnego pliku z kodem menu.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h2 class="panel-title">Wygenerowany kod do wspólnego pliku menu.js</h2>
-          <div class="note" style="margin-bottom:16px;">
-            Wygenerowany kod skopiuj do pliku <strong>menu.js</strong>.  
-            Następnie każda podstrona może wczytywać ten sam plik i mieć identyczne menu.
-          </div>
-          <textarea id="generatedCode" class="code-box" readonly></textarea>
-          <div class="actions" style="margin-top:14px;">
-            <button id="copyBtn">Kopiuj kod</button>
-          </div>
-        </div>
-      </section>
-    </div>
+  <div class="field">
+    <input id="label" placeholder="Nazwa (np. Reiki)" />
   </div>
 
-  <script>
-    const STORAGE_KEY = "reiki_menu_items_v1";
+  <div class="field">
+    <input id="url" placeholder="Link (np. reiki.html)" />
+  </div>
 
-    const labelInput = document.getElementById("labelInput");
-    const urlInput = document.getElementById("urlInput");
-    const addBtn = document.getElementById("addBtn");
-    const saveBtn = document.getElementById("saveBtn");
-    const clearBtn = document.getElementById("clearBtn");
-    const copyBtn = document.getElementById("copyBtn");
-    const menuItemsEl = document.getElementById("menuItems");
-    const previewMenu = document.getElementById("previewMenu");
-    const generatedCode = document.getElementById("generatedCode");
+  <button onclick="add()">Dodaj</button>
+  <button class="secondary" onclick="clearAll()">Wyczyść</button>
 
-    let items = [];
+  <div class="list" id="list"></div>
 
-    function escapeHtml(str) {
-      return String(str)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
+  <h2>Kod do menu.js</h2>
+  <textarea id="output" readonly></textarea>
 
-    function loadItems() {
-      try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        items = raw ? JSON.parse(raw) : [
-          { label: "Start", url: "index.html" },
-          { label: "O Reiki", url: "o-reiki.html" },
-          { label: "Prowadzący", url: "prowadzacy.html" },
-          { label: "Kontakt", url: "kontakt.html" }
-        ];
-      } catch (e) {
-        items = [];
-      }
-    }
+</div>
 
-    function saveItems() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-      alert("Menu zapisane lokalnie w tej przeglądarce.");
-    }
+<script>
+let items = [];
 
-    function renderList() {
-      if (!items.length) {
-        menuItemsEl.innerHTML = '<div class="note">Brak pozycji w menu.</div>';
-        return;
-      }
+function render() {
+  const list = document.getElementById("list");
 
-      menuItemsEl.innerHTML = items.map((item, index) => `
-        <div class="menu-item">
-          <div>
-            <strong>${escapeHtml(item.label)}</strong>
-            <span>${escapeHtml(item.url)}</span>
-          </div>
-          <div class="item-buttons">
-            <button class="secondary" onclick="moveUp(${index})">↑</button>
-            <button class="secondary" onclick="moveDown(${index})">↓</button>
-            <button class="secondary" onclick="editItem(${index})">Edytuj</button>
-            <button onclick="removeItem(${index})">Usuń</button>
-          </div>
-        </div>
-      `).join("");
-    }
+  list.innerHTML = items.map((item, i) => `
+    <div class="item">
+      <div>${item.label} → ${item.url}</div>
+      <button onclick="remove(${i})">Usuń</button>
+    </div>
+  `).join("");
 
-    function renderPreview() {
-      previewMenu.innerHTML = items.map(item => `
-        <a href="${escapeHtml(item.url)}">${escapeHtml(item.label)}</a>
-      `).join("");
-    }
+  generateCode();
+}
 
-    function buildMenuJsCode() {
-      const links = items.map(item => ({
-        label: item.label,
-        url: item.url
-      }));
+function add() {
+  const label = document.getElementById("label").value.trim();
+  const url = document.getElementById("url").value.trim();
 
-      const code = `document.addEventListener("DOMContentLoaded", function () {
-  const target = document.getElementById("site-menu");
-  if (!target) return;
+  if (!label || !url) {
+    alert("Uzupełnij dane");
+    return;
+  }
 
-  const items = ${JSON.stringify(links, null, 2)};
+  items.push({ label, url });
 
-  target.innerHTML = \`
-    <header class="site-header">
-      <div class="site-header-inner">
-        <div class="site-brand">
-          <div class="site-brand-kanji">霊気</div>
-          <div class="site-brand-name">Reiki</div>
-        </div>
-        <nav class="top-menu">
-          \${items.map(item => \`<a href="\${item.url}">\${item.label}</a>\`).join("")}
-        </nav>
-      </div>
-    </header>
-  \`;
+  document.getElementById("label").value = "";
+  document.getElementById("url").value = "";
+
+  render();
+}
+
+function remove(i) {
+  items.splice(i, 1);
+  render();
+}
+
+function clearAll() {
+  items = [];
+  render();
+}
+
+function generateCode() {
+  const code = `document.addEventListener("DOMContentLoaded", function () {
+  const menu = document.getElementById("site-menu");
+  if (!menu) return;
+
+  const items = ${JSON.stringify(items, null, 2)};
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+  menu.innerHTML = items.map(item => {
+    const active = currentPage === item.url ? "active" : "";
+    return \`<a href="\${item.url}" class="\${active}">\${item.label}</a>\`;
+  }).join("");
 });`;
 
-      generatedCode.value = code;
-    }
+  document.getElementById("output").value = code;
+}
+</script>
 
-    function renderAll() {
-      renderList();
-      renderPreview();
-      buildMenuJsCode();
-    }
-
-    function addItem() {
-      const label = labelInput.value.trim();
-      const url = urlInput.value.trim();
-
-      if (!label || !url) {
-        alert("Uzupełnij nazwę i link.");
-        return;
-      }
-
-      items.push({ label, url });
-      labelInput.value = "";
-      urlInput.value = "";
-      renderAll();
-    }
-
-    function removeItem(index) {
-      items.splice(index, 1);
-      renderAll();
-    }
-
-    function editItem(index) {
-      const item = items[index];
-      const newLabel = prompt("Zmień nazwę:", item.label);
-      if (newLabel === null) return;
-
-      const newUrl = prompt("Zmień link:", item.url);
-      if (newUrl === null) return;
-
-      items[index] = {
-        label: newLabel.trim() || item.label,
-        url: newUrl.trim() || item.url
-      };
-
-      renderAll();
-    }
-
-    function moveUp(index) {
-      if (index === 0) return;
-      [items[index - 1], items[index]] = [items[index], items[index - 1]];
-      renderAll();
-    }
-
-    function moveDown(index) {
-      if (index === items.length - 1) return;
-      [items[index + 1], items[index]] = [items[index], items[index + 1]];
-      renderAll();
-    }
-
-    addBtn.addEventListener("click", addItem);
-    saveBtn.addEventListener("click", saveItems);
-
-    clearBtn.addEventListener("click", () => {
-      if (!confirm("Na pewno usunąć wszystkie pozycje menu?")) return;
-      items = [];
-      renderAll();
-      localStorage.removeItem(STORAGE_KEY);
-    });
-
-    copyBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(generatedCode.value);
-        alert("Kod został skopiowany.");
-      } catch (e) {
-        alert("Nie udało się skopiować automatycznie. Skopiuj ręcznie z pola poniżej.");
-      }
-    });
-
-    window.removeItem = removeItem;
-    window.editItem = editItem;
-    window.moveUp = moveUp;
-    window.moveDown = moveDown;
-
-    loadItems();
-    renderAll();
-  </script>
 </body>
 </html>
