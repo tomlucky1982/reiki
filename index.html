@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reiki</title>
+
   <style>
     * {
       box-sizing: border-box;
@@ -27,6 +28,11 @@
       text-align: center;
     }
 
+    /* KLUCZOWY ELEMENT */
+    .top-images-wrapper {
+      display: inline-block;
+    }
+
     .top-images {
       display: flex;
       justify-content: center;
@@ -37,7 +43,7 @@
     }
 
     .top-images img {
-      height: 140px; /* obie grafiki mają tę samą wysokość */
+      height: 140px;
       width: auto;
       display: block;
       object-fit: contain;
@@ -46,7 +52,6 @@
     .description {
       font-size: 1.2rem;
       line-height: 1.7;
-      max-width: 760px;
       margin: 0 auto 36px;
     }
 
@@ -77,18 +82,23 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <div class="top-images">
-      <img src="reiki.png" alt="Reiki" />
-      <img src="napis.png" alt="Napis Reiki" />
-    </div>
 
-    <div class="description">
-      Reiki to Uniwersalna Energia Życia odkryta ponownie na początku dwudziestego wieku przez dr Mikao Usui.
+    <div class="top-images-wrapper">
+      <div class="top-images">
+        <img src="reiki.png" alt="Reiki" />
+        <img src="napis.png" alt="Napis Reiki" />
+      </div>
+
+      <div class="description">
+        Reiki to Uniwersalna Energia Życia odkryta ponownie na początku XX wieku przez dr Mikao Usui (Japonia).
+      </div>
     </div>
 
     <a href="reiki.html" class="enter-button">Wejdź</a>
+
   </div>
 </body>
 </html>
