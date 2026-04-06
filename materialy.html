@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materiały | Reiki</title>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Times New Roman", Georgia, serif;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      border-bottom: 2px solid #000;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .site-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .site-brand img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    .top-menu {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .top-menu a {
+      color: #000;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 6px;
+    }
+
+    .top-menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1.5px;
+      background: #000;
+      transition: 0.2s;
+    }
+
+    .top-menu a:hover::after,
+    .top-menu a.active::after {
+      width: 100%;
+    }
+
+    /* ===== CONTENT ===== */
+    .single-column {
+      padding: 80px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .content-wrapper {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 400;
+    }
+
+    .material {
+      border: 1px solid #000;
+      padding: 24px;
+      margin-bottom: 30px;
+    }
+
+    .material h2 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      font-weight: 400;
+    }
+
+    .material p {
+      margin: 0 0 16px;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .material a {
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid #000;
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #000;
+      transition: 0.2s;
+    }
+
+    .material a:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .note {
+      margin-top: 40px;
+      font-size: 0.95rem;
+      border-left: 3px solid #000;
+      padding-left: 14px;
+      line-height: 1.7;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .site-header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header-inner">
+
+      <a href="index.html" class="site-brand">
+        <img src="reiki.png" alt="Reiki" />
+        <img src="napis.png" alt="Reiki Usui Shiki Ryoho" />
+      </a>
+
+      <nav class="top-menu">
+        <a href="index.html">Start</a>
+        <a href="reiki.html">Reiki</a>
+        <a href="materialy.html" class="active">Materiały</a>
+        <a href="prowadzacy.html">Prowadzący</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main>
+    <section class="single-column">
+      <div class="content-wrapper">
+
+        <h1 class="section-title">Materiały</h1>
+
+        <div class="material">
+          <h2>1. Nagranie: Hawayo Takata - Historia Reiki</h2>
+          <p>
+            Nagranie zostało wykonane w 1979 roku, gdy Takata miała 78 lat, półtora roku przed jej śmiercią.
+            Opowiada na nim historię Reiki taką jak usłyszała od swojego mistrza i nauczyciela.
+          </p>
+          <a href="https://www.youtube.com/watch?v=z_mlUnowqTA" target="_blank">
+            Otwórz nagranie
+          </a>
+        </div>
+
+        <div class="material">
+          <h2>2. Nagranie: Hawayo Takata opowiada o Dr. Chujiro Hayashi</h2>
+          <p>
+            Hawayo Takata opowiada o tym jak Dr. Chujiro Hayashi przeszedł w Świat Ducha.
+          </p>
+          <a href="https://www.youtube.com/watch?v=n6k-_gAb6dU" target="_blank">
+            Otwórz nagranie
+          </a>
+        </div>
+
+        <div class="material">
+          <h2>3. Nagranie: Brigitte Muller rozmowa z Phyllis Furumoto</h2>
+          <p>
+            Brigitte Muller opowiada swoją historię z Reiki. Ważnym aspektem jest „zaniesienie” Reiki do Polski.
+            Wspomina seminarium w Polsce, na którym inicjowała 270 uczniów w ciągu 4 dni.
+          </p>
+          <a href="https://www.youtube.com/watch?v=nojup2_ASZQ&feature=youtu.be" target="_blank">
+            Otwórz nagranie
+          </a>
+        </div>
+
+        <div class="note">
+          Wszystkie nagrania mają opcję włączenia napisów (PL).
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
