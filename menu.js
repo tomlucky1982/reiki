@@ -1,18 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const target = document.getElementById("site-menu");
-  if (!target) return;
+  const menu = document.getElementById("site-menu");
+  if (!menu) return;
 
   const items = [
   {
-    "label": "Start",
+    "label": "START",
     "url": "index.html"
   },
   {
-    "label": "Reiki",
+    "label": "REIKI",
     "url": "reiki.html"
   },
   {
-    "label": "Mistrz",
+    "label": "MISTRZ",
     "url": "mistrz.html"
   },
   {
@@ -20,22 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
     "url": "materialy.html"
   },
   {
-    "label": "Kontakt",
+    "label": "KONTAKT",
     "url": "kontakt.html"
   }
 ];
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-  target.innerHTML = `
-    <header class="site-header">
-      <div class="site-header-inner">
-        <div class="site-brand">
-          <div class="site-brand-kanji">霊気</div>
-          <div class="site-brand-name">Reiki</div>
-        </div>
-        <nav class="top-menu">
-          ${items.map(item => `<a href="${item.url}">${item.label}</a>`).join("")}
-        </nav>
-      </div>
-    </header>
-  `;
+  menu.innerHTML = items.map(item => {
+    const active = currentPage === item.url ? "active" : "";
+    return `<a href="${item.url}" class="${active}">${item.label}</a>`;
+  }).join("");
 });
