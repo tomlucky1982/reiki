@@ -22,7 +22,6 @@
       font-family: "Times New Roman", Georgia, serif;
     }
 
-    /* HEADER */
     .site-header {
       border-bottom: 2px solid #000;
       background: #fff;
@@ -39,6 +38,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 24px;
     }
 
     .site-brand {
@@ -46,27 +46,37 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
+      color: #000;
+      flex-shrink: 0;
     }
 
     .site-brand img {
       height: 52px;
+      width: auto;
+      display: block;
     }
 
-    .top-menu {
+    .top-menu,
+    #site-menu {
       display: flex;
       gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .top-menu a {
+    .top-menu a,
+    #site-menu a {
       text-decoration: none;
       color: #000;
+      font-size: 0.9rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       position: relative;
       padding-bottom: 6px;
     }
 
-    .top-menu a::after {
+    .top-menu a::after,
+    #site-menu a::after {
       content: "";
       position: absolute;
       left: 0;
@@ -78,11 +88,12 @@
     }
 
     .top-menu a:hover::after,
-    .top-menu a.active::after {
+    .top-menu a.active::after,
+    #site-menu a:hover::after,
+    #site-menu a.active::after {
       width: 100%;
     }
 
-    /* CONTENT */
     .single-column {
       padding: 80px 20px;
       display: flex;
@@ -90,13 +101,13 @@
     }
 
     .content-wrapper {
-      max-width: 900px;
+      max-width: 980px;
       width: 100%;
     }
 
     .section-title {
       font-size: 2rem;
-      margin-bottom: 40px;
+      margin: 0 0 40px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 400;
@@ -109,23 +120,26 @@
     }
 
     .material h2 {
-      margin: 0 0 12px;
-      font-size: 1.1rem;
+      margin: 0 0 14px;
+      font-size: 1.12rem;
       letter-spacing: 0.08em;
       font-weight: 400;
+      line-height: 1.5;
     }
 
     .material p {
-      margin: 0 0 20px;
-      line-height: 1.8;
+      margin: 0 0 16px;
+      line-height: 1.85;
+      font-size: 1rem;
     }
 
-    /* VIDEO */
     .video {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
+      margin-top: 18px;
+      border: 1px solid #000;
     }
 
     .video iframe {
@@ -142,72 +156,112 @@
       border-left: 3px solid #000;
       padding-left: 14px;
       font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      .site-header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="site-header-inner">
-    <a href="index.html" class="site-brand">
-      <img src="reiki.png" />
-      <img src="napis.png" />
-    </a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="site-brand">
+        <img src="reiki.png" alt="Reiki" />
+        <img src="napis.png" alt="Reiki Usui Shiki Ryoho" />
+      </a>
 
-    <nav class="top-menu">
-      <a href="index.html">Start</a>
-      <a href="reiki.html">Reiki</a>
-      <a href="materialy.html" class="active">Materiały</a>
-      <a href="prowadzacy.html">Prowadzący</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="single-column">
-    <div class="content-wrapper">
-
-      <h1 class="section-title">Materiały</h1>
-
-      <div class="material">
-        <h2>1. Hawayo Takata - Historia Reiki</h2>
-        <p>
-          Nagranie z 1979 roku. Takata opowiada historię Reiki przekazaną przez jej mistrza.
-        </p>
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/z_mlUnowqTA" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <div class="material">
-        <h2>2. Hawayo Takata o Dr. Chujiro Hayashi</h2>
-        <p>
-          Opowieść o przejściu Dr. Hayashi do Świata Ducha.
-        </p>
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/n6k-_gAb6dU" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <div class="material">
-        <h2>3. Brigitte Muller i Phyllis Furumoto</h2>
-        <p>
-          Historia Reiki i jego przyjścia do Polski.
-        </p>
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/nojup2_ASZQ" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <div class="note">
-        Wszystkie nagrania posiadają możliwość włączenia napisów (PL).
-      </div>
-
+      <nav id="site-menu" class="top-menu"></nav>
     </div>
-  </section>
-</main>
+  </header>
 
+  <main>
+    <section class="single-column">
+      <div class="content-wrapper">
+
+        <h1 class="section-title">Materiały</h1>
+
+        <div class="material">
+          <h2>1. Nagranie: Hawayo Takata - Historia Reiki</h2>
+          <p>
+            Nagranie zostało wykonane w 1979 roku, gdy Hawayo Takata miała 78 lat,
+            około półtora roku przed jej śmiercią. Na tym nagraniu opowiada historię
+            Reiki tak, jak usłyszała ją od swojego mistrza i nauczyciela.
+          </p>
+          <p>
+            Jest to wyjątkowy materiał historyczny, ponieważ pozwala usłyszeć przekaz
+            jednej z najważniejszych osób w linii Reiki, która odegrała kluczową rolę
+            w przeniesieniu tej tradycji na Zachód.
+          </p>
+          <div class="video">
+            <iframe
+              src="https://www.youtube.com/embed/z_mlUnowqTA"
+              title="Hawayo Takata - Historia Reiki"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="material">
+          <h2>2. Nagranie: Hawayo Takata opowiada o Dr. Chujiro Hayashi</h2>
+          <p>
+            W tym nagraniu Hawayo Takata opowiada o Dr. Chujiro Hayashi i o tym,
+            jak przeszedł on w Świat Ducha. To krótki, ale bardzo poruszający materiał,
+            pokazujący osobisty wymiar relacji mistrz–uczeń oraz szacunek,
+            z jakim Takata mówi o swoim nauczycielu.
+          </p>
+          <p>
+            Nagranie ma szczególną wartość dla osób, które chcą głębiej zrozumieć
+            historię linii przekazu Reiki i duchowy kontekst tej tradycji.
+          </p>
+          <div class="video">
+            <iframe
+              src="https://www.youtube.com/embed/n6k-_gAb6dU"
+              title="Hawayo Takata opowiada o Dr. Chujiro Hayashi"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="material">
+          <h2>3. Nagranie: Brigitte Müller - rozmowa z Phyllis Lei Furumoto</h2>
+          <p>
+            W tej rozmowie Brigitte Müller opowiada swoją historię z Reiki.
+            Ważnym aspektem tego nagrania jest wątek „zaniesienia” Reiki do Polski.
+            Brigitte wspomina także seminarium w Polsce, podczas którego inicjowała
+            270 uczniów w ciągu 4 dni.
+          </p>
+          <p>
+            Jest to cenny materiał dla osób zainteresowanych historią rozwoju Reiki
+            w Europie oraz drogą, jaką ten przekaz dotarł również do Polski.
+          </p>
+          <div class="video">
+            <iframe
+              src="https://www.youtube.com/embed/nojup2_ASZQ"
+              title="Brigitte Müller rozmowa z Phyllis Lei Furumoto"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="note">
+          Wszystkie nagrania mają opcję włączenia napisów (PL).
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="menu.js"></script>
 </body>
 </html>
