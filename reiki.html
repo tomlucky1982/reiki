@@ -56,13 +56,14 @@
       display: block;
     }
 
-    .top-menu {
+    /* MENU (ładowane z menu.js) */
+    #site-menu {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
     }
 
-    .top-menu a {
+    #site-menu a {
       color: #000;
       text-decoration: none;
       font-size: 0.9rem;
@@ -72,7 +73,7 @@
       padding-bottom: 6px;
     }
 
-    .top-menu a::after {
+    #site-menu a::after {
       content: "";
       position: absolute;
       left: 0;
@@ -83,8 +84,7 @@
       transition: 0.2s;
     }
 
-    .top-menu a:hover::after,
-    .top-menu a.active::after {
+    #site-menu a:hover::after {
       width: 100%;
     }
 
@@ -121,7 +121,7 @@
       border: 1px solid #000;
     }
 
-    /* ===== MOBILE ===== */
+    /* MOBILE */
     @media (max-width: 768px) {
       .site-header-inner {
         flex-direction: column;
@@ -152,12 +152,8 @@
         <img src="napis.png" alt="Reiki Usui Shiki Ryoho" />
       </a>
 
-      <nav class="top-menu">
-        <a href="index.html">Start</a>
-        <a href="reiki.html" class="active">Reiki</a>
-        <a href="prowadzacy.html">Prowadzący</a>
-        <a href="kontakt.html">Kontakt</a>
-      </nav>
+      <!-- MENU Z menu.js -->
+      <div id="site-menu"></div>
 
     </div>
   </header>
@@ -190,6 +186,9 @@
       </div>
     </section>
   </main>
+
+  <!-- MENU SCRIPT -->
+  <script src="menu.js"></script>
 
 </body>
 </html>
