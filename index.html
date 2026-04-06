@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reiki</title>
 
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
   <style>
     * {
       box-sizing: border-box;
@@ -13,7 +16,6 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Arial, sans-serif;
       background: #ffffff;
       color: #111111;
       display: flex;
@@ -47,7 +49,6 @@
       height: 140px;
       width: auto;
       display: block;
-      object-fit: contain;
     }
 
     .description {
@@ -55,7 +56,10 @@
       line-height: 1.7;
       margin: 0 auto 36px;
       text-align: center;
-      word-wrap: break-word;
+
+      /* KLUCZOWE */
+      font-style: italic;
+      font-family: Georgia, "Times New Roman", serif;
     }
 
     .enter-button {
@@ -93,33 +97,36 @@
 <body>
   <div class="container">
     <div class="brand-block">
+
       <div class="top-images" id="topImages">
         <img src="reiki.png" alt="Reiki" />
-        <img src="napis.png" alt="Napis Reiki" />
+        <img src="napis.png" alt="Reiki Usui Shiki Ryoho" />
       </div>
 
       <div class="description" id="description">
-        Reiki to Uniwersalna Energia Życia odkryta ponownie na początku dwudziestego wieku przez dr Mikao Usui.
+        Reiki to Uniwersalna Energia Życia odkryta ponownie na początku XX wieku przez dr Mikao Usui (Japonia).
       </div>
 
       <a href="reiki.html" class="enter-button">Wejdź</a>
+
     </div>
   </div>
 
+  <!-- DOPASOWANIE SZEROKOŚCI DO LOGO -->
   <script>
-    function syncDescriptionWidth() {
-      const topImages = document.getElementById("topImages");
-      const description = document.getElementById("description");
+    function syncWidth() {
+      const top = document.getElementById("topImages");
+      const desc = document.getElementById("description");
 
-      if (!topImages || !description) return;
+      if (!top || !desc) return;
 
-      const width = topImages.offsetWidth;
-      description.style.width = width + "px";
-      description.style.maxWidth = "100%";
+      desc.style.width = top.offsetWidth + "px";
+      desc.style.maxWidth = "100%";
     }
 
-    window.addEventListener("load", syncDescriptionWidth);
-    window.addEventListener("resize", syncDescriptionWidth);
+    window.addEventListener("load", syncWidth);
+    window.addEventListener("resize", syncWidth);
   </script>
+
 </body>
 </html>
