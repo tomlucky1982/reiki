@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
     "url": "reiki.html"
   },
   {
+    "label": "LINIA PRZEKAZU",
+    "url": "linia.html"
+  },
+  {
     "label": "MISTRZ",
     "url": "mistrz.html"
   },
