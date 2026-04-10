@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt | Reiki</title>
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --line: #d8d8d8;
+      --box-bg: #fafafa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Times New Roman", Georgia, serif;
+    }
+
+    .site-header {
+      border-bottom: 2px solid #000;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      min-height: 116px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .site-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    .site-brand img {
+      display: block;
+      width: auto;
+    }
+
+    .site-brand img:first-child {
+      height: 68px;
+    }
+
+    .site-brand img:last-child {
+      height: 60px;
+    }
+
+    .top-menu,
+    #site-menu {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .top-menu a,
+    #site-menu a {
+      text-decoration: none;
+      color: #000;
+      font-size: 0.92rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .top-menu a::after,
+    #site-menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1.5px;
+      background: #000;
+      transition: width 0.2s ease;
+    }
+
+    .top-menu a:hover::after,
+    .top-menu a.active::after,
+    #site-menu a:hover::after,
+    #site-menu a.active::after {
+      width: 100%;
+    }
+
+    .page-wrap {
+      padding: 70px 20px 80px;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 34px;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      font-weight: 400;
+      text-align: center;
+      margin: 0 0 24px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      font-size: 1.08rem;
+      line-height: 1.9;
+      margin: 0 auto 42px;
+      text-align: center;
+      font-style: italic;
+      font-family: Georgia, "Times New Roman", serif;
+      max-width: 860px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-divider {
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 38px 0;
+    }
+
+    .contact-card,
+    .form-box {
+      background: var(--box-bg);
+      border: 1px solid #cfcfcf;
+      border-radius: 12px;
+      padding: 30px 32px;
+    }
+
+    .contact-card {
+      text-align: center;
+    }
+
+    .contact-name {
+      font-size: 1.5rem;
+      line-height: 1.4;
+      margin: 0 0 10px;
+      font-weight: 400;
+    }
+
+    .contact-role {
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 0 0 24px;
+    }
+
+    .contact-details {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-details li {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin: 0 0 6px;
+    }
+
+    .contact-details a {
+      color: #111111;
+      text-decoration: underline;
+      word-break: break-word;
+    }
+
+    .section-heading {
+      margin: 0 0 18px;
+      font-size: 1.4rem;
+      line-height: 1.3;
+      font-weight: 400;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    .section-text {
+      text-align: center;
+      font-size: 1.02rem;
+      line-height: 1.85;
+      margin: 0 auto 24px;
+      max-width: 760px;
+    }
+
+    .signup-form {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .signup-form input[type="email"] {
+      width: 100%;
+      padding: 16px 18px;
+      font-size: 1rem;
+      border: 1px solid #c8c8c8;
+      border-radius: 10px;
+      background: #fff;
+      font-family: inherit;
+      color: #000;
+      outline: none;
+    }
+
+    .signup-form input[type="email"]:focus {
+      border-color: #8f8f8f;
+    }
+
+    .signup-form button {
+      align-self: center;
+      min-width: 170px;
+      padding: 13px 22px;
+      font-size: 0.96rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid #000;
+      border-radius: 10px;
+      background: #fff;
+      color: #000;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+      font-family: inherit;
+    }
+
+    .signup-form button:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .signup-form button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .form-message {
+      min-height: 28px;
+      margin-top: 18px;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .form-message.success {
+      color: #1d6f3a;
+    }
+
+    .form-message.error {
+      color: #a52121;
+    }
+
+    @media (max-width: 900px) {
+      .site-header-inner {
+        min-height: auto;
+        padding: 16px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #site-menu,
+      .top-menu {
+        justify-content: flex-start;
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-wrap {
+        padding: 42px 18px 56px;
+      }
+
+      .page-title {
+        font-size: 1.5rem;
+      }
+
+      .intro,
+      .section-text,
+      .contact-details li,
+      .form-message {
+        font-size: 1rem;
+      }
+
+      .contact-card,
+      .form-box {
+        padding: 22px 18px;
+      }
+
+      .contact-name {
+        font-size: 1.3rem;
+      }
+
+      .contact-role {
+        font-size: 0.95rem;
+      }
+
+      .site-brand img:first-child {
+        height: 56px;
+      }
+
+      .site-brand img:last-child {
+        height: 48px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="site-brand">
+        <img src="reiki.png" alt="Reiki" />
+        <img src="napis.png" alt="Reiki Usui Shiki Ryoho" />
+      </a>
+
+      <nav id="site-menu" class="top-menu"></nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container">
+      <div class="brand-block">
+        <h1 class="page-title">Kontakt</h1>
+
+        <div class="intro">
+          Jeśli chcesz skontaktować się bezpośrednio lub otrzymywać powiadomienia
+          o seminariach Reiki, skorzystaj z danych poniżej.
+        </div>
+      </div>
+
+      <div class="content">
+        <section class="contact-card">
+          <h2 class="contact-name">Tomasz Szczęsny</h2>
+          <div class="contact-role">Mistrz i Nauczyciel Reiki</div>
+
+          <ul class="contact-details">
+            <li>Tel. <a href="tel:+48501587692">501 587 692</a></li>
+            <li>
+              E-mail:
+              <a href="mailto:Tomasz.szczesny@forumrozwoju.pl">Tomasz.szczesny@forumrozwoju.pl</a>
+            </li>
+          </ul>
+        </section>
+
+        <hr class="section-divider" />
+
+        <section class="form-box">
+          <h2 class="section-heading">Powiadomienia o seminariach Reiki</h2>
+
+          <p class="section-text">
+            Jeśli chcesz otrzymywać powiadomienia o seminariach Reiki,
+            wpisz swój adres e-mail poniżej.
+          </p>
+
+          <form id="signupForm" class="signup-form">
+            <div class="form-row">
+              <input
+                id="emailInput"
+                type="email"
+                placeholder="Twój adres e-mail"
+                autocomplete="email"
+                required
+              />
+
+              <button id="submitBtn" type="submit">Prześlij</button>
+            </div>
+
+            <div id="formMessage" class="form-message"></div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="menu.js"></script>
+
+  <script type="module">
+    import { supabase } from './supabase-client.js'
+
+    const form = document.getElementById('signupForm')
+    const emailInput = document.getElementById('emailInput')
+    const submitBtn = document.getElementById('submitBtn')
+    const formMessage = document.getElementById('formMessage')
+
+    function setMessage(text, type = '') {
+      formMessage.textContent = text
+      formMessage.className = 'form-message' + (type ? ` ${type}` : '')
+    }
+
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+
+      const rawEmail = emailInput.value.trim()
+      const email = rawEmail.toLowerCase()
+
+      setMessage('')
+
+      if (!email) {
+        setMessage('Wpisz adres e-mail.', 'error')
+        return
+      }
+
+      if (!isValidEmail(email)) {
+        setMessage('Wpisz poprawny adres e-mail.', 'error')
+        return
+      }
+
+      submitBtn.disabled = true
+      setMessage('Trwa zapisywanie...')
+
+      try {
+        const now = new Date().toISOString()
+
+        const { data: existingRows, error: selectError } = await supabase
+          .from('event_subscribers')
+          .select('id, email, is_active')
+          .eq('email', email)
+          .limit(1)
+
+        if (selectError) {
+          throw new Error(selectError.message)
+        }
+
+        if (existingRows && existingRows.length > 0) {
+          const existing = existingRows[0]
+
+          const { error: updateError } = await supabase
+            .from('event_subscribers')
+            .update({
+              is_active: true,
+              source: 'Reiki',
+              updated_at: now
+            })
+            .eq('id', existing.id)
+
+          if (updateError) {
+            throw new Error(updateError.message)
+          }
+
+          setMessage('Ten adres został zapisany na powiadomienia.', 'success')
+        } else {
+          const { error: insertError } = await supabase
+            .from('event_subscribers')
+            .insert([{
+              email: email,
+              is_active: true,
+              source: 'Reiki',
+              created_at: now,
+              updated_at: now
+            }])
+
+          if (insertError) {
+            throw new Error(insertError.message)
+          }
+
+          setMessage('Dziękuję. Adres został zapisany.', 'success')
+        }
+
+        form.reset()
+      } catch (error) {
+        setMessage('Nie udało się zapisać adresu. Spróbuj ponownie.', 'error')
+        console.error('Błąd zapisu do Supabase:', error)
+      } finally {
+        submitBtn.disabled = false
+      }
+    })
+  </script>
+</body>
+</html>
