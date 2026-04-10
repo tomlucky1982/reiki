@@ -273,6 +273,7 @@
       text-align: center;
       font-size: 1rem;
       line-height: 1.6;
+      white-space: pre-line;
     }
 
     .form-message.success {
@@ -424,12 +425,58 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }
 
+    async function saveSubscriber(email) {
+      const normalizedEmail = email.trim().toLowerCase()
+      const now = new Date().toISOString()
+
+      const { data: existing, error: existingError } = await supabase
+        .from('event_subscribers')
+        .select('id, email, is_active, source')
+        .eq('email', normalizedEmail)
+        .maybeSingle()
+
+      if (existingError) {
+        throw existingError
+      }
+
+      if (existing) {
+        const { error: updateError } = await supabase
+          .from('event_subscribers')
+          .update({
+            is_active: true,
+            source: 'Reiki',
+            updated_at: now
+          })
+          .eq('id', existing.id)
+
+        if (updateError) {
+          throw updateError
+        }
+
+        return { mode: 'updated' }
+      }
+
+      const { error: insertError } = await supabase
+        .from('event_subscribers')
+        .insert([{
+          email: normalizedEmail,
+          is_active: true,
+          source: 'Reiki',
+          created_at: now,
+          updated_at: now
+        }])
+
+      if (insertError) {
+        throw insertError
+      }
+
+      return { mode: 'inserted' }
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
 
-      const rawEmail = emailInput.value.trim()
-      const email = rawEmail.toLowerCase()
-
+      const email = emailInput.value.trim()
       setMessage('')
 
       if (!email) {
@@ -446,57 +493,28 @@
       setMessage('Trwa zapisywanie...')
 
       try {
-        const now = new Date().toISOString()
+        const result = await saveSubscriber(email)
 
-        const { data: existingRows, error: selectError } = await supabase
-          .from('event_subscribers')
-          .select('id, email, is_active')
-          .eq('email', email)
-          .limit(1)
-
-        if (selectError) {
-          throw new Error(selectError.message)
-        }
-
-        if (existingRows && existingRows.length > 0) {
-          const existing = existingRows[0]
-
-          const { error: updateError } = await supabase
-            .from('event_subscribers')
-            .update({
-              is_active: true,
-              source: 'Reiki',
-              updated_at: now
-            })
-            .eq('id', existing.id)
-
-          if (updateError) {
-            throw new Error(updateError.message)
-          }
-
-          setMessage('Ten adres został zapisany na powiadomienia.', 'success')
+        if (result.mode === 'updated') {
+          setMessage('Ten adres był już w bazie i został ponownie aktywowany.', 'success')
         } else {
-          const { error: insertError } = await supabase
-            .from('event_subscribers')
-            .insert([{
-              email: email,
-              is_active: true,
-              source: 'Reiki',
-              created_at: now,
-              updated_at: now
-            }])
-
-          if (insertError) {
-            throw new Error(insertError.message)
-          }
-
           setMessage('Dziękuję. Adres został zapisany.', 'success')
         }
 
         form.reset()
       } catch (error) {
-        setMessage('Nie udało się zapisać adresu. Spróbuj ponownie.', 'error')
         console.error('Błąd zapisu do Supabase:', error)
+
+        const details =
+          error?.message ||
+          error?.details ||
+          error?.hint ||
+          'Nieznany błąd Supabase.'
+
+        setMessage(
+          'Nie udało się zapisać adresu.\n' + details,
+          'error'
+        )
       } finally {
         submitBtn.disabled = false
       }
