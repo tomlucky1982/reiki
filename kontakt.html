@@ -273,7 +273,6 @@
       text-align: center;
       font-size: 1rem;
       line-height: 1.6;
-      white-space: pre-line;
     }
 
     .form-message.success {
@@ -383,7 +382,7 @@
 
           <p class="section-text">
             Jeśli chcesz otrzymywać powiadomienia o seminariach Reiki,
-            wpisz swój adres e-mail poniżej.
+            wpisz swój adres e-mail poniżej:
           </p>
 
           <form id="signupForm" class="signup-form">
@@ -429,22 +428,24 @@
       const normalizedEmail = email.trim().toLowerCase()
       const now = new Date().toISOString()
 
-      const { data: existing, error: existingError } = await supabase
+      const { data: existingRows, error: selectError } = await supabase
         .from('event_subscribers')
         .select('id, email, is_active, source')
         .eq('email', normalizedEmail)
-        .maybeSingle()
+        .limit(1)
 
-      if (existingError) {
-        throw existingError
+      if (selectError) {
+        throw selectError
       }
 
-      if (existing) {
+      if (existingRows && existingRows.length > 0) {
+        const existing = existingRows[0]
+
         const { error: updateError } = await supabase
           .from('event_subscribers')
           .update({
             is_active: true,
-            source: 'Reiki',
+            source: 'kontakt.html',
             updated_at: now
           })
           .eq('id', existing.id)
@@ -453,24 +454,24 @@
           throw updateError
         }
 
-        return { mode: 'updated' }
+        return
       }
 
       const { error: insertError } = await supabase
         .from('event_subscribers')
-        .insert([{
-          email: normalizedEmail,
-          is_active: true,
-          source: 'Reiki',
-          created_at: now,
-          updated_at: now
-        }])
+        .insert([
+          {
+            email: normalizedEmail,
+            is_active: true,
+            source: 'kontakt.html',
+            created_at: now,
+            updated_at: now
+          }
+        ])
 
       if (insertError) {
         throw insertError
       }
-
-      return { mode: 'inserted' }
     }
 
     form.addEventListener('submit', async (e) => {
@@ -490,31 +491,14 @@
       }
 
       submitBtn.disabled = true
-      setMessage('Trwa zapisywanie...')
 
       try {
-        const result = await saveSubscriber(email)
-
-        if (result.mode === 'updated') {
-          setMessage('Ten adres był już w bazie i został ponownie aktywowany.', 'success')
-        } else {
-          setMessage('Dziękuję. Adres został zapisany.', 'success')
-        }
-
+        await saveSubscriber(email)
         form.reset()
+        setMessage('Dziękuję.', 'success')
       } catch (error) {
         console.error('Błąd zapisu do Supabase:', error)
-
-        const details =
-          error?.message ||
-          error?.details ||
-          error?.hint ||
-          'Nieznany błąd Supabase.'
-
-        setMessage(
-          'Nie udało się zapisać adresu.\n' + details,
-          'error'
-        )
+        setMessage('Nie udało się zapisać adresu e-mail.', 'error')
       } finally {
         submitBtn.disabled = false
       }
