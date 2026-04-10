@@ -381,8 +381,7 @@
           <h2 class="section-heading">Powiadomienia o seminariach Reiki</h2>
 
           <p class="section-text">
-            Jeśli chcesz otrzymywać powiadomienia o seminariach Reiki,
-            wpisz swój adres e-mail poniżej:
+            Jeśli chcesz otrzymywać powiadomienia o seminariach Reiki wpisz swój adres e-mail poniżej:
           </p>
 
           <form id="signupForm" class="signup-form">
@@ -394,7 +393,6 @@
                 autocomplete="email"
                 required
               />
-
               <button id="submitBtn" type="submit">Prześlij</button>
             </div>
 
@@ -430,7 +428,7 @@
 
       const { data: existingRows, error: selectError } = await supabase
         .from('event_subscribers')
-        .select('id, email, is_active, source')
+        .select('id')
         .eq('email', normalizedEmail)
         .limit(1)
 
@@ -439,16 +437,14 @@
       }
 
       if (existingRows && existingRows.length > 0) {
-        const existing = existingRows[0]
-
         const { error: updateError } = await supabase
           .from('event_subscribers')
           .update({
             is_active: true,
-            source: 'kontakt.html',
+            source: 'Reiki',
             updated_at: now
           })
-          .eq('id', existing.id)
+          .eq('id', existingRows[0].id)
 
         if (updateError) {
           throw updateError
@@ -463,7 +459,7 @@
           {
             email: normalizedEmail,
             is_active: true,
-            source: 'kontakt.html',
+            source: 'Reiki',
             created_at: now,
             updated_at: now
           }
@@ -481,12 +477,10 @@
       setMessage('')
 
       if (!email) {
-        setMessage('Wpisz adres e-mail.', 'error')
         return
       }
 
       if (!isValidEmail(email)) {
-        setMessage('Wpisz poprawny adres e-mail.', 'error')
         return
       }
 
