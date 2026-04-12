@@ -4,15 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Materiały | Reiki</title>
+  <meta name="description" content="Materiały o Reiki: nagrania, książki, fragmenty tłumaczeń, pliki PDF do pobrania oraz archiwalne materiały związane z linią przekazu Reiki." />
 
   <style>
     :root {
       --bg: #ffffff;
       --text: #000000;
+      --border: #000000;
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -107,10 +113,27 @@
 
     .section-title {
       font-size: 2rem;
-      margin: 0 0 40px;
+      margin: 0 0 20px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 400;
+    }
+
+    .section-intro {
+      margin: 0 0 42px;
+      line-height: 1.9;
+      font-size: 1.02rem;
+      max-width: 900px;
+    }
+
+    .subsection-title {
+      font-size: 1.35rem;
+      margin: 56px 0 24px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 400;
+      border-bottom: 1px solid #000;
+      padding-bottom: 10px;
     }
 
     .material {
@@ -151,6 +174,131 @@
       border: none;
     }
 
+    .books-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+      margin-top: 14px;
+    }
+
+    .book-card {
+      border: 1px solid #000;
+      padding: 24px;
+    }
+
+    .book-top {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .book-cover {
+      width: 100%;
+      max-width: 220px;
+      border: 1px solid #000;
+      display: block;
+      background: #f7f7f7;
+    }
+
+    .book-content h3 {
+      margin: 0 0 14px;
+      font-size: 1.14rem;
+      line-height: 1.55;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+
+    .book-content p {
+      margin: 0 0 14px;
+      line-height: 1.85;
+      font-size: 1rem;
+    }
+
+    .book-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 18px 0 8px;
+    }
+
+    .btn-link {
+      display: inline-block;
+      border: 1px solid #000;
+      padding: 10px 16px;
+      text-decoration: none;
+      color: #000;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      transition: 0.2s;
+    }
+
+    .btn-link:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .translation-box {
+      margin-top: 18px;
+      border-top: 1px solid #000;
+      padding-top: 18px;
+    }
+
+    .translation-box h4 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .translation-preview {
+      margin-bottom: 12px;
+      line-height: 1.9;
+    }
+
+    details.expandable {
+      margin-top: 10px;
+      border: 1px solid #000;
+      padding: 0;
+    }
+
+    details.expandable summary {
+      cursor: pointer;
+      padding: 12px 16px;
+      list-style: none;
+      user-select: none;
+      font-size: 0.96rem;
+      letter-spacing: 0.04em;
+    }
+
+    details.expandable summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.expandable summary::after {
+      content: "Pokaż więcej";
+      float: right;
+    }
+
+    details.expandable[open] summary::after {
+      content: "Pokaż mniej";
+    }
+
+    .expandable-content {
+      padding: 0 16px 16px;
+      border-top: 1px solid #000;
+    }
+
+    .expandable-content p {
+      margin: 14px 0 0;
+      line-height: 1.9;
+    }
+
+    .seo-hidden-text {
+      position: static;
+    }
+
     .note {
       margin-top: 40px;
       border-left: 3px solid #000;
@@ -159,11 +307,34 @@
       line-height: 1.8;
     }
 
+    @media (max-width: 900px) {
+      .book-top {
+        grid-template-columns: 1fr;
+      }
+
+      .book-cover {
+        max-width: 260px;
+      }
+    }
+
     @media (max-width: 768px) {
       .site-header-inner {
         flex-direction: column;
         align-items: flex-start;
         padding: 15px 20px;
+      }
+
+      .single-column {
+        padding: 46px 18px;
+      }
+
+      .material,
+      .book-card {
+        padding: 18px;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
       }
     }
   </style>
@@ -187,6 +358,14 @@
       <div class="content-wrapper">
 
         <h1 class="section-title">Materiały</h1>
+        <p class="section-intro">
+          W tej sekcji znajdują się nagrania oraz książki związane z historią Reiki,
+          linią przekazu oraz nauczaniem wybranych Mistrzów i nauczycieli.
+          Przy wybranych pozycjach umieszczone są krótkie fragmenty tłumaczeń na język polski
+          oraz pliki PDF do pobrania.
+        </p>
+
+        <h2 class="subsection-title">Nagrania</h2>
 
         <div class="material">
           <h2>1. Nagranie: Hawayo Takata - Historia Reiki</h2>
@@ -256,6 +435,200 @@
 
         <div class="note">
           Wszystkie nagrania mają opcję włączenia napisów (PL).
+        </div>
+
+        <h2 class="subsection-title">Książki</h2>
+
+        <div class="books-grid">
+
+          <article class="book-card">
+            <div class="book-top">
+              <img class="book-cover" src="the_blue_book.png" alt="Okładka książki The Blue Book" loading="lazy" />
+
+              <div class="book-content">
+                <h3>1. The Blue Book (fragment)</h3>
+                <p>
+                  Książeczka przekazywana na seminariach Pierwszego Stopnia Reiki
+                  w początkowym okresie funkcjonowania Alliance Reiki. Zawiera dedykację
+                  Susan Mitchell, która przez wiele lat pełniła funkcję dyrektora
+                  Alliance Reiki. Dedykacja została wpisana 19.05.2025 podczas
+                  Warsztatu USUI 1 w Niemczech, w którym uczestniczyłem. Susan była
+                  wydawcą tej książeczki w 1985 roku.
+                </p>
+
+                <div class="book-actions">
+                  <a class="btn-link" href="the_blue_book.pdf" download>Pobierz PDF</a>
+                </div>
+
+                <div class="translation-box">
+                  <h4>Fragment tłumaczenia</h4>
+                  <p class="translation-preview">
+                    19.05.2025<br />
+                    Drogi Tomku,<br />
+                    To było naprawdę piękne spędzić ten tydzień, dzieląc się doświadczeniami,
+                    a szczególnie słuchając o Twojej pierwszej klasie Reiki i Twojej głębokiej radości...
+                  </p>
+
+                  <details class="expandable">
+                    <summary>Rozwiń tłumaczenie</summary>
+                    <div class="expandable-content">
+                      <p>
+                        [Tu w następnym kroku wstawimy pełny rozwijany fragment tłumaczenia
+                        i transkrypcji The Blue Book. Zostanie zachowany układ przyjazny SEO:
+                        początek widoczny od razu, a dalsza treść rozwijana po kliknięciu.]
+                      </p>
+                      <p>
+                        [Miejsce na dalsze akapity: wczesny dziennik Hawayo Takaty,
+                        zasady działania, praktyka, efekty, Reiki Alliance oraz zasady Reiki.]
+                      </p>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="book-card">
+            <div class="book-top">
+              <img class="book-cover" src="the_grey_book.png" alt="Okładka książki The Grey Book" loading="lazy" />
+
+              <div class="book-content">
+                <h3>2. The Grey Book (fragment)</h3>
+                <p>
+                  Książeczka przekazywana przez Hawayo Takatę swoim uczniom.
+                  Zawiera opisy pozycji rąk w języku japońskim oraz historyczne
+                  materiały związane z nauczaniem Reiki.
+                </p>
+
+                <div class="book-actions">
+                  <a class="btn-link" href="the_grey_book.pdf" download>Pobierz PDF</a>
+                </div>
+
+                <div class="translation-box">
+                  <h4>Fragment tłumaczenia</h4>
+                  <p class="translation-preview">
+                    CERTYFIKAT<br />
+                    Niniejszym zaświadcza się, że Pani Hawayo Takata, obywatelka amerykańska
+                    urodzona na terytorium Hawajów, po odbyciu studiów i szkolenia
+                    w systemie uzdrawiania Reiki Usui...
+                  </p>
+
+                  <details class="expandable">
+                    <summary>Rozwiń tłumaczenie</summary>
+                    <div class="expandable-content">
+                      <p>
+                        [Tu wstawimy pełny rozwijany fragment tłumaczenia The Grey Book,
+                        w tym certyfikat oraz listę uczniów Takata Sensei.]
+                      </p>
+                      <p>
+                        [Na tym etapie zostawiamy bez pełnej treści, aby szybciej zbudować
+                        strukturę strony i dopracować ją w drugim kroku.]
+                      </p>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="book-card">
+            <div class="book-top">
+              <img class="book-cover" src="wylecz_sie_sam.png" alt="Okładka książki Wylecz się Sam" loading="lazy" />
+
+              <div class="book-content">
+                <h3>3. Wylecz się Sam (fragment) – Brigitte Muller</h3>
+                <p>
+                  Brigitte Muller była inicjowana na Mistrza przez Phyllis Furumoto.
+                  Inicjowała na Mistrza Reiki Jana Peterkę z Polski.
+                </p>
+
+                <div class="book-actions">
+                  <a class="btn-link" href="wylecz_sie_sam.pdf" download>Pobierz PDF</a>
+                </div>
+
+                <p>
+                  Ta pozycja jest dostępna do pobrania w formacie PDF.
+                  Na tym etapie nie dodajemy tutaj transkrypcji, ponieważ książka jest po polsku.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="book-card">
+            <div class="book-top">
+              <img class="book-cover" src="uzdrawiajaca_energia_reiki.png" alt="Okładka książki Uzdrawiająca energia Reiki" loading="lazy" />
+
+              <div class="book-content">
+                <h3>4. Uzdrawiająca energia Reiki (fragment) – Jan Peterko</h3>
+                <p>
+                  Jan Peterko był Mistrzem Reiki inicjowanym przez Brigitte Muller.
+                  Inicjował na Mistrza Mariana Bartkowiaka, mojego mistrza.
+                </p>
+
+                <div class="book-actions">
+                  <a class="btn-link" href="uzdrawiajaca_energia_reiki.pdf" download>Pobierz PDF</a>
+                </div>
+
+                <p>
+                  Ta pozycja jest dostępna do pobrania w formacie PDF.
+                  Na tym etapie nie dodajemy tutaj transkrypcji, ponieważ książka jest po polsku.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="book-card">
+            <div class="book-top">
+              <img class="book-cover" src="living_reiki.png" alt="Okładka książki Living Reiki" loading="lazy" />
+
+              <div class="book-content">
+                <h3>5. Living Reiki, Takata’s Teaching (fragment) – Fran Brown</h3>
+                <p>
+                  Fran Brown była Mistrzynią Reiki inicjowaną przez Hawayo Takatę.
+                  W książce opowiada historie zasłyszane od swojej nauczycielki
+                  i przekazuje ważne elementy ustnej tradycji Reiki.
+                </p>
+
+                <div class="book-actions">
+                  <a class="btn-link" href="living_reiki.pdf" download>Pobierz PDF</a>
+                </div>
+
+                <div class="translation-box">
+                  <h4>Fragment tłumaczenia</h4>
+                  <p class="translation-preview">
+                    <strong>Dar</strong><br />
+                    Około szesnastu miesięcy po otwarciu swojego biura w Kapaa,
+                    Hawayo zjadła kolację z ojcem i spędziła noc w domu swojej siostry.
+                    Jakiś czas po północy, a jeszcze przed świtem, wydarzyła się dziwna rzecz...
+                  </p>
+
+                  <details class="expandable">
+                    <summary>Rozwiń tłumaczenie</summary>
+                    <div class="expandable-content">
+                      <p>
+                        [Tu w drugim kroku wstawimy pełny rozwijany fragment tłumaczenia
+                        Living Reiki: Dar, historia dr. Usui, Chujiro Hayashi,
+                        klinika Reiki w Tokio, dobroczynność Hayashiego
+                        oraz przejście Hayashiego.]
+                      </p>
+                      <p>
+                        [Układ jest już gotowy pod dużą ilość treści, ale wizualnie
+                        strona pozostanie zwięzła, ponieważ dłuższa zawartość będzie
+                        ukryta pod przyciskiem „Pokaż więcej”.]
+                      </p>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="note">
+          Fragmenty tłumaczeń będą sukcesywnie rozwijane. Układ strony został przygotowany tak,
+          aby treść była widoczna dla użytkownika i jednocześnie nie zajmowała zbyt wiele miejsca
+          wizualnie przed rozwinięciem.
         </div>
 
       </div>
