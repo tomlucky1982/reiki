@@ -20,6 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
     "url": "mistrz.html"
   },
   {
+    "label": "SEMINARIUM",
+    "url": "seminarium.html"
+  },
+  {
     "label": "MATERIAŁY",
     "url": "materialy.html"
   },
