@@ -242,6 +242,32 @@
       margin: 0 auto;
     }
 
+    .rules-intro {
+      text-align: center;
+      font-style: italic;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.04rem;
+      line-height: 1.85;
+      max-width: 850px;
+      margin: 0 auto 28px;
+    }
+
+    .rules-content {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .rules-image img {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+    }
+
     @media (max-width: 900px) {
       .site-header-inner {
         min-height: auto;
@@ -273,6 +299,14 @@
       .hero-image img {
         max-width: 300px;
       }
+
+      .rules-content {
+        grid-template-columns: 1fr;
+      }
+
+      .rules-image {
+        order: -1;
+      }
     }
 
     @media (max-width: 640px) {
@@ -293,6 +327,7 @@
       .links-box li,
       .rules-box li,
       .center-note,
+      .rules-intro,
       .practice-card p {
         font-size: 1rem;
       }
@@ -471,13 +506,26 @@
 
         <section class="box rules-box">
           <h2 class="section-heading" style="margin-top: 0;">Zasady Reiki</h2>
-          <ul>
-            <li>Chociażby dziś nie martw się.</li>
-            <li>Chociażby dziś nie złość się.</li>
-            <li>Czcij swoich rodziców, nauczycieli i ludzi starszych.</li>
-            <li>Uczciwie zarabiaj na życie.</li>
-            <li>Okazuj wdzięczność każdej czującej istocie.</li>
-          </ul>
+
+          <div class="rules-intro">
+            Dr Usui przekazał nam 5 zasad Reiki, które prowadzą nas w codziennym życiu.
+          </div>
+
+          <div class="rules-content">
+            <div class="rules-list">
+              <ul>
+                <li>Chociażby dziś nie martw się.</li>
+                <li>Chociażby dziś nie złość się.</li>
+                <li>Czcij swoich rodziców, nauczycieli i ludzi starszych.</li>
+                <li>Uczciwie zarabiaj na życie.</li>
+                <li>Okazuj wdzięczność każdej czującej istocie.</li>
+              </ul>
+            </div>
+
+            <div class="rules-image">
+              <img src="principles.png" alt="Zasady Reiki" />
+            </div>
+          </div>
         </section>
 
         <hr class="section-divider" />
