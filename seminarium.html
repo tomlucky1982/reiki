@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seminarium Reiki | Reiki</title>
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --line: #d8d8d8;
+      --box-bg: #fafafa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Times New Roman", Georgia, serif;
+    }
+
+    .site-header {
+      border-bottom: 2px solid #000;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      min-height: 116px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .site-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    .site-brand img {
+      display: block;
+      width: auto;
+    }
+
+    .site-brand img:first-child {
+      height: 68px;
+    }
+
+    .site-brand img:last-child {
+      height: 60px;
+    }
+
+    .top-menu,
+    #site-menu {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .top-menu a,
+    #site-menu a {
+      text-decoration: none;
+      color: #000;
+      font-size: 0.92rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .top-menu a::after,
+    #site-menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1.5px;
+      background: #000;
+      transition: width 0.2s ease;
+    }
+
+    .top-menu a:hover::after,
+    .top-menu a.active::after,
+    #site-menu a:hover::after,
+    #site-menu a.active::after {
+      width: 100%;
+    }
+
+    .page-wrap {
+      padding: 70px 20px 80px;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 34px;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      font-weight: 400;
+      text-align: center;
+      margin: 0 0 24px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      font-size: 1.08rem;
+      line-height: 1.9;
+      margin: 0 auto 42px;
+      text-align: center;
+      font-style: italic;
+      font-family: Georgia, "Times New Roman", serif;
+      max-width: 860px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-divider {
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 38px 0;
+    }
+
+    .section-heading {
+      margin: 0 0 22px;
+      font-size: 1.45rem;
+      line-height: 1.3;
+      font-weight: 400;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    .subheading {
+      margin: 0 0 18px;
+      font-size: 1.22rem;
+      line-height: 1.3;
+      font-weight: 400;
+    }
+
+    .box {
+      background: var(--box-bg);
+      border: 1px solid #cfcfcf;
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .section-text p,
+    .seminar-box p,
+    .seminar-box li,
+    .image-note {
+      margin: 0 0 18px;
+      font-size: 1.02rem;
+      line-height: 1.85;
+    }
+
+    .seminar-box ul {
+      margin: 0 0 18px;
+      padding-left: 22px;
+    }
+
+    .seminar-box p:last-child,
+    .section-text p:last-child,
+    .seminar-box li:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-section {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .hero-image img,
+    .dojo-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+    }
+
+    .image-note {
+      text-align: center;
+      font-style: italic;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.98rem;
+      margin-top: 14px;
+      margin-bottom: 0;
+    }
+
+    .degree-title {
+      margin: 0 0 16px;
+      font-size: 1.34rem;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+    .degree-highlight {
+      font-style: italic;
+    }
+
+    .center-note {
+      text-align: center;
+      font-style: italic;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.04rem;
+      line-height: 1.85;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .site-header-inner {
+        min-height: auto;
+        padding: 16px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #site-menu,
+      .top-menu {
+        justify-content: flex-start;
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .hero-section {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image,
+      .dojo-image {
+        order: -1;
+      }
+
+      .hero-image img,
+      .dojo-image img {
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-wrap {
+        padding: 42px 18px 56px;
+      }
+
+      .page-title {
+        font-size: 1.5rem;
+      }
+
+      .intro {
+        font-size: 1rem;
+      }
+
+      .section-text p,
+      .seminar-box p,
+      .seminar-box li,
+      .center-note,
+      .image-note {
+        font-size: 1rem;
+      }
+
+      .section-heading {
+        font-size: 1.28rem;
+      }
+
+      .subheading,
+      .degree-title {
+        font-size: 1.12rem;
+      }
+
+      .box,
+      .seminar-box {
+        padding: 20px 18px;
+      }
+
+      .site-brand img:first-child {
+        height: 56px;
+      }
+
+      .site-brand img:last-child {
+        height: 48px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="site-brand">
+        <img src="reiki.png" alt="Reiki" />
+        <img src="napis.png" alt="Reiki Usui Shiki Ryoho" />
+      </a>
+
+      <nav id="site-menu" class="top-menu"></nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container">
+      <div class="brand-block">
+        <h1 class="page-title">Seminarium Reiki</h1>
+
+        <div class="intro">
+          Reiki poznajemy podczas zajęć, które nazywamy Seminarium Reiki.
+        </div>
+      </div>
+
+      <div class="content">
+        <hr class="section-divider" />
+
+        <section class="hero-section">
+          <div class="section-text">
+            <p>
+              Seminarium Reiki jest przestrzenią, w której poznajemy praktykę Reiki w sposób uporządkowany,
+              bezpośredni i oparty na doświadczeniu. To nie tylko przekaz wiedzy, ale również wejście
+              w żywą tradycję nauczania i praktykowania Reiki.
+            </p>
+
+            <p>
+              Każdy stopień Seminarium ma swój zakres, rytm i głębokość. Uczestnik otrzymuje nie tylko
+              wiedzę teoretyczną, ale przede wszystkim możliwość osobistego doświadczenia Energii Reiki
+              oraz nauczenia się, jak korzystać z niej w codziennym życiu.
+            </p>
+          </div>
+
+          <div class="hero-image">
+            <img src="dojo.png" alt="Japońska sala do prowadzenia zajęć Reiki" />
+            <div class="image-note">
+              Japońska sala do prowadzenia zajęć Reiki, <em>The Reiki Sourcebook</em> (Frans &amp; Bronwen Stiene)
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <section class="box seminar-box">
+          <h2 class="degree-title">Pierwszy stopień Reiki <span class="degree-highlight">– koszt uczestnictwa: równoważność 150 Euro.</span></h2>
+
+          <p>
+            Uczniowie poznają praktykę Reiki. Zazwyczaj Seminarium pierwszego stopnia trwa 2 dni
+            po ok. 6 h zajęć każdego dnia:
+          </p>
+
+          <ul>
+            <li>Czym jest Reiki</li>
+            <li>Wykonywanie zabiegu Reiki na sobie</li>
+            <li>Wykonywanie zabiegu Reiki na drugiej osobie</li>
+            <li>Historia Reiki</li>
+            <li>Zasady Reiki</li>
+            <li>Znak Reiki</li>
+            <li>Zastosowanie Reiki w życiu codziennym</li>
+            <li>Cztery Inicjacje – procedura, którą wykonuje mistrz Reiki w celu uruchomienia, wzmocnienia i utwierdzenia przepływu Energii Reiki w osobie inicjowanej.</li>
+          </ul>
+
+          <p>
+            Każdy uczestnik seminarium otrzymuje dyplom potwierdzający uzyskanie Pierwszego Stopnia Reiki.
+            Wyjątkowym aspektem seminarium jest fakt, że już w jego trakcie oraz po zakończeniu uczestnicy
+            potrafią samodzielnie przekazywać energię Reiki poprzez dłonie.
+          </p>
+
+          <p>
+            Dar ten zostaje z nami na całe życie – jeśli tylko zechcemy z niego korzystać,
+            będzie nam zawsze towarzyszył.
+          </p>
+        </section>
+
+        <hr class="section-divider" />
+
+        <section class="box seminar-box">
+          <h2 class="degree-title">Drugi stopień Reiki <span class="degree-highlight">– koszt uczestnictwa: równoważność 500 Euro.</span></h2>
+
+          <p>
+            Od pierwszego stopnia Reiki musi upłynąć co najmniej 3 miesiące, w praktyce często dłużej.
+            Zastrzegam sobie prawo jako Mistrz określić gotowość ucznia do Inicjacji na Drugi Stopień.
+          </p>
+
+          <p>
+            Zazwyczaj Seminarium Drugiego Stopnia trwa 2 dni po ok. 5 h zajęć każdego dnia.
+            Uczniowie zdecydowanie pogłębiają swoje możliwości pracy z Energią Reiki:
+          </p>
+
+          <ul>
+            <li>Poznajemy symbole Reiki i ich zastosowanie</li>
+            <li>Uzyskujemy możliwość pracy z Energią na odległość</li>
+            <li>Uzyskujemy możliwość intensywnej pracy z intencjami</li>
+            <li>Pozyskujemy bardzo obszerną wiedzę z zakresu wykorzystania Energii Reiki do pracy nad sobą i do pomocy innym, jednak są to elementy przekazywane tylko na Seminarium Reiki Drugiego Stopnia i nie mogą zostać tutaj opisane.</li>
+            <li>Jedna Inicjacja</li>
+          </ul>
+
+          <p>
+            Każdy uczestnik otrzymuje Dyplom potwierdzający uzyskanie Drugiego Stopnia Reiki.
+          </p>
+        </section>
+
+        <hr class="section-divider" />
+
+        <section class="box seminar-box">
+          <h2 class="degree-title">Trzeci Stopień Reiki – Mistrzowski. <span class="degree-highlight">Równoważność 10 000 Euro.</span></h2>
+
+          <p>
+            Trzeci Stopień Reiki upoważnia do nauczania Reiki i inicjowania uczniów.
+          </p>
+
+          <p>
+            Konieczne są indywidualne ustalenia między uczniem a Mistrzem.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="menu.js"></script>
+</body>
+</html>
