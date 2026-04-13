@@ -178,17 +178,54 @@
       margin: 0 auto;
     }
 
-    .lineage-box {
-      margin-top: 36px;
-      padding: 26px 28px;
+    .master-info-box {
+      margin-top: 22px;
+      padding: 20px 18px;
       border: 1px solid #cfcfcf;
       border-radius: 12px;
       background: #fafafa;
     }
 
+    .master-info-box p {
+      margin: 0 0 10px;
+      font-size: 0.98rem;
+      line-height: 1.8;
+      text-align: left;
+    }
+
+    .master-info-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .szczelinka-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 14px 0 18px;
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    .szczelinka-row img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .szczelinka-row a {
+      color: #000;
+    }
+
+    .lineage-box {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #d6d6d6;
+    }
+
     .lineage-title {
-      margin: 0 0 18px;
-      font-size: 1.15rem;
+      margin: 0 0 14px;
+      font-size: 1rem;
       font-weight: 400;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -203,8 +240,8 @@
     }
 
     .lineage-list li {
-      font-size: 1.02rem;
-      line-height: 1.9;
+      font-size: 0.98rem;
+      line-height: 1.85;
       padding: 2px 0;
     }
 
@@ -264,6 +301,11 @@
       .master-image img {
         max-width: 300px;
       }
+
+      .master-info-box {
+        max-width: 420px;
+        margin: 22px auto 0;
+      }
     }
 
     @media (max-width: 640px) {
@@ -280,12 +322,10 @@
       }
 
       .master-text p,
-      .lineage-list li {
+      .lineage-list li,
+      .master-info-box p,
+      .szczelinka-row {
         font-size: 1rem;
-      }
-
-      .lineage-box {
-        padding: 22px 18px;
       }
 
       .site-brand img:first-child {
@@ -407,19 +447,6 @@
               że aż trudno byłoby je wszystkie wymienić.
             </p>
 
-            <div class="lineage-box">
-              <h2 class="lineage-title">Moja linia przekazu</h2>
-              <ul class="lineage-list">
-                <li>Mikao Usui</li>
-                <li>Chujiro Hayashi</li>
-                <li>Hawayo Takata</li>
-                <li>Phyllis Lei Furumoto</li>
-                <li>Brigitte Müller</li>
-                <li>Jan Peterko</li>
-                <li>Marian Bartkowiak</li>
-              </ul>
-            </div>
-
             <div class="signature">
               <div class="signature-name">Tomasz Szczęsny</div>
               <div class="signature-role">Mistrz Reiki</div>
@@ -428,6 +455,33 @@
 
           <div class="master-image">
             <img src="tomek.jpg" alt="Tomasz Szczęsny" />
+
+            <div class="master-info-box">
+              <p><strong>Pierwszy Stopień Reiki:</strong> 04.11.2001</p>
+              <p><strong>Drugi Stopień Reiki:</strong> 28.09.2002</p>
+              <p><strong>Trzeci Stopień Reiki (Mistrzowski):</strong> 5.10.2019</p>
+
+              <div class="szczelinka-row">
+                <img src="logo.png" alt="Logo Szczelinka" />
+                <div>
+                  Prowadzę zajęcia również z medytacji Szczelinka, więcej o tej metodzie medytacji na stronie
+                  <a href="https://szczelinka.com" target="_blank" rel="noopener noreferrer">szczelinka.com</a>
+                </div>
+              </div>
+
+              <div class="lineage-box">
+                <h2 class="lineage-title">Moja linia przekazu</h2>
+                <ul class="lineage-list">
+                  <li>Mikao Usui</li>
+                  <li>Chujiro Hayashi</li>
+                  <li>Hawayo Takata</li>
+                  <li>Phyllis Lei Furumoto</li>
+                  <li>Brigitte Müller</li>
+                  <li>Jan Peterko</li>
+                  <li>Marian Bartkowiak</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
       </div>
