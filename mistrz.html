@@ -285,6 +285,102 @@
       font-style: normal;
     }
 
+    .gallery-section {
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-item {
+      display: block;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+      border: 1px solid #d6d6d6;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background: #f7f7f7;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.02);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      padding: 30px 20px;
+      overflow-y: auto;
+    }
+
+    .lightbox.open {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 95vh;
+      text-align: center;
+    }
+
+    .lightbox-image {
+      max-width: 95vw;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+      background: #fff;
+    }
+
+    .lightbox-caption {
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 900px;
+      margin: 18px auto 0;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background: #fff;
+      color: #000;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+
     @media (max-width: 900px) {
       .site-header-inner {
         min-height: auto;
@@ -297,6 +393,10 @@
       .top-menu {
         justify-content: flex-start;
         gap: 18px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -345,6 +445,18 @@
 
       .site-brand img:last-child {
         height: 48px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item img {
+        height: auto;
+      }
+
+      .lightbox-caption {
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -495,10 +607,105 @@
             </div>
           </div>
         </section>
+
+        <section class="gallery-section">
+          <div class="gallery-grid">
+            <a
+              href="#"
+              class="gallery-item"
+              data-image="dyplom.png"
+              data-caption="Dyplom Inicjacji na III Stopień Reiki - Mistrzowski"
+            >
+              <img src="dyplom.png" alt="Dyplom Inicjacji na III Stopień Reiki - Mistrzowski" />
+            </a>
+
+            <a
+              href="#"
+              class="gallery-item"
+              data-image="grupowe.jpg"
+              data-caption="Fotografia ze spotkania z Johannes Reindl w Warszawie 25 listopada 2025r. Johannes na środku górny rząd, w dolnym rzędzie pierwsza od prawej moja żona Marzena Szczęsna, obok niej mój Mistrz i Nauczyciel Marian Bartkowiak."
+            >
+              <img src="grupowe.jpg" alt="Fotografia ze spotkania z Johannes Reindl w Warszawie 25 listopada 2025r." />
+            </a>
+
+            <a
+              href="#"
+              class="gallery-item"
+              data-image="zPaul.jpg"
+              data-caption="Z Paul Mitchell podczas kursu Usui I w 2023 r."
+            >
+              <img src="zPaul.jpg" alt="Z Paul Mitchell podczas kursu Usui I w 2023 r." />
+            </a>
+
+            <a
+              href="#"
+              class="gallery-item"
+              data-image="zJohannes.jpg"
+              data-caption="Z Johannes Reindl podczas kursu Usui I w 2023 r."
+            >
+              <img src="zJohannes.jpg" alt="Z Johannes Reindl podczas kursu Usui I w 2023 r." />
+            </a>
+          </div>
+        </section>
       </div>
     </div>
   </main>
 
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Zamknij popup">&times;</button>
+      <img id="lightboxImage" class="lightbox-image" src="" alt="" />
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
   <script src="menu.js"></script>
+
+  <script>
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        const imageSrc = this.getAttribute('data-image');
+        const caption = this.getAttribute('data-caption');
+        const altText = this.querySelector('img').getAttribute('alt');
+
+        lightboxImage.src = imageSrc;
+        lightboxImage.alt = altText;
+        lightboxCaption.textContent = caption;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+      lightboxImage.alt = '';
+      lightboxCaption.textContent = '';
+      document.body.style.overflow = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
+  </script>
 </body>
 </html>
