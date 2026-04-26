@@ -1,94 +1,241 @@
-        <hr class="section-divider" />
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TDCDLKYHWV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TDCDLKYHWV');
+</script>
 
-        <section>
-          <h2 class="section-heading">9 Elementów</h2>
+  <title>Reiki – czym jest i jak działa | Energia Reiki</title>
+  <meta name="description" content="Czym jest Reiki i jak działa? Poznaj energię Reiki, jej działanie, historię oraz praktykę uzdrawiania poprzez przekaz energii.">
+  <meta name="keywords" content="reiki co to, czym jest reiki, energia reiki, uzdrawianie reiki, ki, chi, prana, mikao usui, praktyka reiki">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-          <div class="center-note">
-            Dla spójności przekazu określono 9 elementów, na których opiera się nauczanie w systemie Usui Shiki Ryoho. 
-            Wzajemne oddziaływanie Elementów tworzy duchową „technologię”, która budzi ukryty potencjał uzdrawiania 
-            i wspiera rozwój ludzkiej świadomości.
-            <br><br>
-            Dziewięć Elementów to: Forma Nauczania, Historia, Inicjacja, Pieniądze, Tradycja Ustna, Zasady, 
-            Duchowa Linia Przekazu, Symbole oraz Zabieg.
-          </div>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
-          <div style="height: 28px;"></div>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --line: #d8d8d8;
+      --box-bg: #fafafa;
+    }
 
-          <div class="practice-grid">
+    * { box-sizing: border-box; }
 
-            <article class="practice-card">
-              <h3 class="subheading">Forma nauczania</h3>
-              <p>
-                Forma zajęć w tym systemie jest prosta, bezpośrednia i kompleksowa. Jest łatwa do nauczenia i zintegrowania 
-                z codziennym życiem. Mistrz prowadzi zajęcia na każdym poziomie, wspierając ucznia w doświadczaniu 
-                jego indywidualnej ścieżki praktyki.
-              </p>
-            </article>
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Times New Roman", Georgia, serif;
+    }
 
-            <article class="practice-card">
-              <h3 class="subheading">Historia</h3>
-              <p>
-                Historia to opowieść o pochodzeniu i rozwoju praktyki Reiki na przestrzeni czasu, przechowywana, 
-                przekazywana i pielęgnowana przez Duchową Linię Przekazu: Mikao Usui, Chujiro Hayashi, 
-                Hawayo Takata, Phyllis Lei Furumoto oraz Johannes Reindl.
-              </p>
-            </article>
+    .site-header {
+      border-bottom: 2px solid #000;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-            <article class="practice-card">
-              <h3 class="subheading">Inicjacja</h3>
-              <p>
-                Inicjacja to rytuał znany i praktykowany wyłącznie przez mistrzów Reiki, który wprowadza ucznia 
-                na kolejne stopnie Reiki. Jest to święty moment doświadczenia jedności z energią Reiki.
-              </p>
-            </article>
+    .site-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      min-height: 116px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-            <article class="practice-card">
-              <h3 class="subheading">Pieniądze</h3>
-              <p>
-                Równowaga pomiędzy dawaniem a przyjmowaniem jest odzwierciedlona w tym elemencie. 
-                Praktyka Reiki zakłada wymianę — zarówno za naukę, jak i za zabiegi.
-              </p>
-            </article>
+    .site-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: #000;
+    }
 
-            <article class="practice-card">
-              <h3 class="subheading">Tradycja ustna</h3>
-              <p>
-                Reiki jest przekazywane poprzez bezpośredni kontakt mistrza i ucznia. Istota praktyki 
-                przekazywana jest poprzez doświadczenie, a nie jedynie słowo pisane.
-              </p>
-            </article>
+    .site-brand img:first-child { height: 68px; }
+    .site-brand img:last-child { height: 60px; }
 
-            <article class="practice-card">
-              <h3 class="subheading">Zasady</h3>
-              <p>
-                Pięć zasad Reiki to wskazówki przekazane przez Mikao Usui, które wspierają rozwój 
-                na duchowej ścieżce.
-              </p>
-            </article>
+    #site-menu {
+      display: flex;
+      gap: 28px;
+    }
 
-            <article class="practice-card">
-              <h3 class="subheading">Duchowa Linia Przekazu</h3>
-              <p>
-                Linia Przekazu obejmuje: Mikao Usui, Chujiro Hayashi, Hawayo Takata, 
-                Phyllis Lei Furumoto oraz Johannes Reindl — i stanowi fundament przekazu systemu.
-              </p>
-            </article>
+    #site-menu a {
+      text-decoration: none;
+      color: #000;
+      font-size: 0.92rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
 
-            <article class="practice-card">
-              <h3 class="subheading">Symbole</h3>
-              <p>
-                W praktyce istnieją trzy symbole o określonym zastosowaniu. Nie są one używane publicznie 
-                i stanowią element osobistej praktyki ucznia.
-              </p>
-            </article>
+    .page-wrap { padding: 70px 20px; }
 
-            <article class="practice-card">
-              <h3 class="subheading">Zabieg</h3>
-              <p>
-                Forma zabiegu jest prosta i kompleksowa. Na pierwszym stopniu przekaz energii odbywa się przez dotyk, 
-                na drugim również na odległość. Reiki wspiera naturalny proces samo-uzdrawiania organizmu.
-              </p>
-            </article>
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
 
-          </div>
-        </section>
+    .page-title {
+      text-align: center;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 40px;
+    }
+
+    .section-divider {
+      border-top: 1px solid var(--line);
+      margin: 40px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .practice-card {
+      border: 1px solid #cfcfcf;
+      border-radius: 12px;
+      padding: 20px;
+      background: #fafafa;
+    }
+
+    .box {
+      border: 1px solid #cfcfcf;
+      border-radius: 12px;
+      padding: 20px;
+      background: #fafafa;
+    }
+
+    .center-note {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 800px) {
+      .practice-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-brand">
+      <img src="reiki.png">
+      <img src="napis.png">
+    </a>
+    <nav id="site-menu"></nav>
+  </div>
+</header>
+
+<main class="page-wrap">
+<div class="container">
+
+<h1 class="page-title">Reiki</h1>
+
+<div class="intro">
+Reiki można tłumaczyć jako Uniwersalną Energię Życia – subtelną energię pochodzącą ze Źródła.
+</div>
+
+<hr class="section-divider" />
+
+<!-- 4 ASPEKTY (skrócone bo były wcześniej) -->
+
+<section>
+<h2 class="section-heading">Cztery aspekty praktyki Reiki</h2>
+
+<div class="practice-grid">
+<div class="practice-card"><b>Uzdrowienie</b><br>Praca z energią dla siebie i innych.</div>
+<div class="practice-card"><b>Rozwój</b><br>Zmiana wzorców i wzrost świadomości.</div>
+<div class="practice-card"><b>Dyscyplina</b><br>Codzienna praktyka duchowa.</div>
+<div class="practice-card"><b>Społeczność</b><br>Wspólne doświadczenie Reiki.</div>
+</div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ZASADY -->
+
+<section class="box">
+<h2 class="section-heading">Zasady Reiki</h2>
+<ul>
+<li>Nie martw się</li>
+<li>Nie złość się</li>
+<li>Szanuj innych</li>
+<li>Pracuj uczciwie</li>
+<li>Bądź wdzięczny</li>
+</ul>
+</section>
+
+<hr class="section-divider" />
+
+<!-- 9 ELEMENTÓW -->
+
+<section>
+<h2 class="section-heading">9 Elementów</h2>
+
+<div class="center-note">
+Dziewięć Elementów to fundament nauczania Reiki i rozwoju świadomości.
+</div>
+
+<div class="practice-grid">
+
+<div class="practice-card"><b>Forma nauczania</b><br>Prosta i praktyczna.</div>
+<div class="practice-card"><b>Historia</b><br>Linia przekazu Reiki.</div>
+<div class="practice-card"><b>Inicjacja</b><br>Rytuał mistrzowski.</div>
+<div class="practice-card"><b>Pieniądze</b><br>Równowaga wymiany.</div>
+<div class="practice-card"><b>Tradycja ustna</b><br>Bezpośredni przekaz.</div>
+<div class="practice-card"><b>Zasady</b><br>Fundament praktyki.</div>
+<div class="practice-card"><b>Linia Przekazu</b><br>Kontynuacja nauki.</div>
+<div class="practice-card"><b>Symbole</b><br>Praca wewnętrzna.</div>
+<div class="practice-card"><b>Zabieg</b><br>Przekaz energii.</div>
+
+</div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- LINKI NA SAM KONIEC -->
+
+<section class="box">
+<h2 class="section-heading">Przydatne linki</h2>
+<ul>
+<li><a href="http://reiki.wroc.pl/">reiki.wroc.pl</a></li>
+<li><a href="https://reikialliance.com/en/">Reiki Alliance</a></li>
+<li><a href="https://www.usuishikiryohoreiki.com">OGM</a></li>
+<li><a href="https://www.drogareiki.pl/">Droga Reiki</a></li>
+<li><a href="https://reikiusui.com.pl/">Reiki Usui</a></li>
+</ul>
+</section>
+
+</div>
+</main>
+
+<script src="menu.js"></script>
+
+</body>
+</html>
