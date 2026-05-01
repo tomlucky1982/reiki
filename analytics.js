@@ -14,12 +14,6 @@
   gtag("js", new Date());
 
   gtag("config", GA_ID, {
-    send_page_view: false
-  });
-
-  gtag("event", "page_view", {
-    page_title: document.title,
-    page_location: window.location.href,
-    page_path: window.location.pathname
+    send_page_view: true
   });
 })();
